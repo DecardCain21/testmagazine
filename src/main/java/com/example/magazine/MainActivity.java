@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button butseven;
     Button buteight;
     Button butnine;
+    Button clear;
     Button pay;
 
 
@@ -38,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
         butseven = (Button) findViewById(R.id.button15);
         buteight = (Button) findViewById(R.id.button16);
         butnine = (Button) findViewById(R.id.button17);
+        clear = (Button) findViewById(R.id.clear);
         pay = (Button) findViewById(R.id.pay);
         ImageView logo = (ImageView) findViewById(R.id.imageView7);
+        LinearLayout pagetwo = (LinearLayout) findViewById(R.id.pagetwo);
         //Присваиваю данным кнопкам обработчики
         butone.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -102,11 +106,19 @@ public class MainActivity extends AppCompatActivity {
                 logo.setImageDrawable(getDrawable(R.drawable.bmhunt));
             }
         });
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(View v) {
+                logo.setImageDrawable(getDrawable(R.drawable.logo));
+            }
+        });
+
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent("com.example.magazine.SecondActivity");
-                startActivity(intent);
+              pagetwo.setVisibility(View.VISIBLE);
             }
         });
     }
